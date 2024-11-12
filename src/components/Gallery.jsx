@@ -28,7 +28,7 @@ const Gallery = () => {
               to={`/details/${project._id}`}
               className="relative bg-gray-100 overflow-hidden transform transition duration-300 hover:scale-102 hover:opacity-90 hover:filter-none filter grayscale group"
             >
-             <img src={`http://localhost:5000${project.src}`} alt={project.title} className="w-full h-full object-cover" />
+             <img src={`https://yaa-5geq.onrender.com${project.src}`} alt={project.title} className="w-full h-full object-cover" />
             </Link>
           ))}
         </div>

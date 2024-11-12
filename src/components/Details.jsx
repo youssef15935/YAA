@@ -15,7 +15,7 @@ const Details = () => {
     // Requête pour obtenir les détails du projet depuis le backend
     const fetchProject = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/projects/${id}`);
+        const response = await axios.get(`https://yaa-5geq.onrender.com/projects/${id}`);
         setProject(response.data); // Stocke les données du projet dans le state
         console.log("Projet récupéré :", response.data); // Pour vérifier les données
       } catch (error) {

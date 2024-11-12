@@ -5,8 +5,11 @@ const projectRoutes = require('./routes/projectRoutes');
 const cors = require('cors');
 const multer = require('multer');
 const Project = require('./models/Project'); // Assurez-vous que le modèle Project est importé correctement
+const { login } = require('../controllers/authController');
+const { getProjects } = require('../controllers/adminController');
+const authenticate = require('../middleware/authenticate');
 require('dotenv').config();
-
+const router = express.Router();
 const app = express(); // Déclarez app ici
 
 // Connexion à la base de données
@@ -40,6 +43,9 @@ app.post('/api/projects', upload.single('image'), async (req, res) => {
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
+router.post('/login', login);
+router.get('/projects', authenticate, getProjects);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Serveur démarré sur le port ${PORT}`));
