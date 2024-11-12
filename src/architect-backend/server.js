@@ -5,8 +5,8 @@ const projectRoutes = require('./routes/projectRoutes');
 const cors = require('cors');
 const multer = require('multer');
 const Project = require('./models/Project'); // Assurez-vous que le modèle Project est importé correctement
-const { login } = require('../controllers/authController');
-const { getProjects } = require('../controllers/adminController');
+const { login } = require('./controllers/authController');
+const { getProjects } = require('./controllers/adminController');
 const authenticate = require('../middleware/authenticate');
 require('dotenv').config();
 const router = express.Router();
