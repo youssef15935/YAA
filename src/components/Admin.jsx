@@ -15,7 +15,7 @@ const Admin = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/projects');
+      const response = await axios.get('https://yaa-5geq.onrender.com/api/projects');
       setProjects(response.data);
     } catch (error) {
       console.error('Erreur lors de la récupération des projets', error);
@@ -35,7 +35,7 @@ const Admin = () => {
       formData.append('description', newProject.description);
       formData.append('image', imageFile);
 
-      await axios.post('http://localhost:5000/api/projects', formData, {
+      await axios.post('https://yaa-5geq.onrender.com/api/projects', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -52,7 +52,7 @@ const Admin = () => {
 
   const handleUpdateProject = async (id, updatedProject) => {
     try {
-      await axios.put(`http://localhost:5000/api/projects/${id}`, updatedProject);
+      await axios.put(`https://yaa-5geq.onrender.com/api/projects/${id}`, updatedProject);
       fetchProjects();
     } catch (error) {
       console.error('Erreur lors de la mise à jour du projet', error);
@@ -61,7 +61,7 @@ const Admin = () => {
 
   const handleDeleteProject = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/projects/${id}`);
+      await axios.delete(`https://yaa-5geq.onrender.com/api/projects/${id}`);
       fetchProjects();
     } catch (error) {
       console.error('Erreur lors de la suppression du projet', error);
